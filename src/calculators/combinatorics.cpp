@@ -1,4 +1,5 @@
 ﻿#include "combinatorics.h"
+#include "../common/menu.h"
 
 void arrangement_with_repetition()
 {
@@ -50,18 +51,19 @@ void permutations()
     cout << "Ответ: " << factorial(n) << "\n";
 }
 
-void combinatorics_entry() {
-	bool process = true;
-	cout << "Меню комбинаторики:\n1. Размещение с повторением.\n2. Размещение без повторений.\n3. Сочетание с повторением.\n4. Сочетание без повторений.\n5. Перестановка\n";
-	while (process)
-	{		
-		int choice;
-		cout << "\nВыберите пункт: "; cin >> choice;
+int combinatorics_entry()
+{
+	const char *title = "Комбинаторика";
+	const char *entries[] = {"Размещение с повторением", "Размещение без повторений", "Сочетание с повторением", 
+		"Сочетание без повторений", "Перестановка"};
+
+	while (true)
+	{
+		int choice = menu_ask(title, entries, sizeof(entries) / sizeof(entries[0]));
 		switch (choice)
 		{
 		case 0:
-			process = false;
-			break;
+			return 0;
 		case 1:
 			arrangement_with_repetition();
 			break;
@@ -80,5 +82,7 @@ void combinatorics_entry() {
 		default:
 			break;
 		}
+		cout << endl;
 	}
+	return 0;
 }

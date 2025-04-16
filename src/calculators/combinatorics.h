@@ -16,4 +16,4 @@ void combinations_without_repetition();
 
 void permutations();
 
-void combinatorics_entry();
+int combinatorics_entry();
