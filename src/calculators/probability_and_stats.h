@@ -3,4 +3,10 @@
 
 using namespace std;
 
-void probability_and_stats_entry();
+double VerMAndN(int m, int n);
+
+double expected_value(int* a, double* b, int size);
+
+double variance(int* a, double* b, int size);
+
+int probability_and_stats_entry();
