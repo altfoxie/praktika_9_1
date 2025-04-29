@@ -1,7 +1,6 @@
 ﻿#include "probability_and_stats.h"
 #include "../common/menu.h"
 #include <stdio.h>
-#include <malloc.h>
 
 double VerMAndN(int m, int n) {
     if (n == 0) {
@@ -51,13 +50,13 @@ int probability_and_stats_entry() {
 		case 2:
 			int size;
 			printf("Введите количество значений: ");
-			scanf_s("%d", &size);
+			cin >> size;
 
 			int* a;
 			a = (int*)malloc(size * sizeof(int));
 			double* b;
 			b = (double*)malloc(size * sizeof(double));
-		
+
 			if (a == NULL or b == NULL) {
 				printf("Ошибка выделения памяти!\n");
 				return 1;
@@ -66,13 +65,13 @@ int probability_and_stats_entry() {
 			printf("Введите значения:\n");
 			for (int i = 0; i < size; i++) {
 				printf("Значение %d: ", i + 1);
-				scanf_s("%d", &a[i]);
+				cin >> a[i];
 			}
-		
+
 			printf("Введите вероятности:\n");
 			for (int i = 0; i < size; i++) {
 				printf("Вероятность %d: ", i + 1);
-				scanf_s("%lf", &b[i]);
+				cin >> b[i];
 			}
 
 			var = variance(a, b, size);
@@ -80,10 +79,10 @@ int probability_and_stats_entry() {
 			break;
 		case 3:
 			printf("Введите количество значений: ");
-			scanf_s("%d", &size);
+			cin >> size;
 			a = (int*)malloc(size * sizeof(int));
 			b = (double*)malloc(size * sizeof(double));
-		
+
 			if (a == NULL or b == NULL) {
 				printf("Ошибка выделения памяти!\n");
 				return 1;
@@ -92,13 +91,13 @@ int probability_and_stats_entry() {
 			printf("Введите значения:\n");
 			for (int i = 0; i < size; i++) {
 				printf("Значение %d: ", i + 1);
-				scanf_s("%d", &a[i]);
+				cin >> a[i];
 			}
-		
+
 			printf("Введите вероятности:\n");
 			for (int i = 0; i < size; i++) {
 				printf("Вероятность %d: ", i + 1);
-				scanf_s("%lf", &b[i]);
+				cin >> b[i];
 			}
 
 			var = variance(a, b, size);
