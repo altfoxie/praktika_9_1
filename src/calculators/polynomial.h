@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 
-int polynomial_entry();
+void polynomial_entry();
 void InputPolinom(vector<int>* a);
 void SumPolinom(vector<int>* a);
 void MinPolinom(vector<int>* a);

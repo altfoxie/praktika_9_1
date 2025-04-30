@@ -103,9 +103,9 @@ void OutputPolinom(vector<int>* a) {
 		cout << "0";
 	}
 	cout << endl;
-
 }
-int polynomial_entry() {
+
+void polynomial_entry() {
 	setlocale(LC_ALL, "RU");
 	int choice, degree;
 	do {
