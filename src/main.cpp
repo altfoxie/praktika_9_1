@@ -13,7 +13,7 @@
 
 using namespace std;
 
-int main() {
+int main(int argc, char **argv) {
 #if defined(_WINDOWS)
   SetConsoleOutputCP(CP_UTF8);
 #endif

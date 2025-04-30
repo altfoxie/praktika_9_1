@@ -21,7 +21,7 @@ add_executable (praktika_9_1 "src/main.cpp" "src/calculators/matrix.cpp" "src/ca
 
 # SDL2
 add_subdirectory(vendored/SDL2)
-target_link_libraries(praktika_9_1 SDL2)
+target_link_libraries(praktika_9_1 SDL2main SDL2-static)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET praktika_9_1 PROPERTY CXX_STANDARD 20)
