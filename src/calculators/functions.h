@@ -1,8 +1,13 @@
 #pragma once
+#include <SDL2/SDL.h>
+#include <cmath>
+#include <iomanip>
 #include <iostream>
+#include <limits>
+#include <sstream>
+#include <string>
+#include <vector>
 
 #include "../common/menu.h"
-
-using namespace std;
 
 void functions_entry();

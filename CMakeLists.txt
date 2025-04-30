@@ -19,6 +19,10 @@ endif()
 # Add source to this project's executable.
 add_executable (praktika_9_1 "src/main.cpp" "src/calculators/matrix.cpp" "src/calculators/matrix.h" "src/calculators/common_fractions.cpp" "src/calculators/common_fractions.h" "src/calculators/combinatorics.cpp" "src/calculators/combinatorics.h" "src/calculators/polynomial.cpp" "src/calculators/polynomial.h" "src/calculators/probability_and_stats.cpp" "src/calculators/probability_and_stats.h" "src/calculators/functions.cpp" "src/calculators/functions.h" "src/common/menu.cpp")
 
+# SDL2
+add_subdirectory(vendored/SDL2)
+target_link_libraries(praktika_9_1 SDL2)
+
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET praktika_9_1 PROPERTY CXX_STANDARD 20)
 endif()
