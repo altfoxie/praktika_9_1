@@ -1,17 +1,39 @@
 #include "cj.h"
 #include "../common/menu.h"
+#include <array>
+#include <limits>
+#include <string_view>
+
+namespace {
+template <typename T>
+bool read_value(std::string_view prompt, T &value) {
+  std::cout << prompt;
+  if (std::cin >> value) {
+    return true;
+  }
+
+  std::cout << "Ошибка: некорректный ввод.\n";
+  std::cin.clear();
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  return false;
+}
+} // namespace
 
 int cj_entry()
 {
     cout << "Ah shit, here we go again." << endl;
     cout << endl;
 
-    const char *title = "Сан-Андреас";
-    const char *entries[] = {"Узнать количество денег на счету Карла", "Подсчитать прыжки по городу", "Рассчитать уважение (Respect)"};
+    constexpr string_view title = "Сан-Андреас";
+    constexpr array entries{
+        "Узнать количество денег на счету Карла",
+        "Подсчитать прыжки по городу",
+        "Рассчитать уважение (Respect)"
+    };
 
     while (true)
     {
-        int choice = menu_ask(title, entries, sizeof(entries) / sizeof(entries[0]));
+        int choice = menu_ask(title.data(), entries.data(), entries.size());
         switch (choice)
         {
         case 0:
@@ -19,8 +41,10 @@ int cj_entry()
         case 1:
         {
             double balance;
-            cout << "Введите текущий баланс Карла ($): ";
-            cin >> balance;
+            if (!read_value("Введите текущий баланс Карла ($): ", balance))
+            {
+                break;
+            }
             if (balance < 0)
             {
                 cout << "Ошибка: баланс не может быть отрицательным." << endl;
@@ -33,10 +57,14 @@ int cj_entry()
         case 2:
         {
             int jumps, collected;
-            cout << "Введите общее количество прыжков в городе: ";
-            cin >> jumps;
-            cout << "Введите количество собранных прыжков: ";
-            cin >> collected;
+            if (!read_value("Введите общее количество прыжков в городе: ", jumps))
+            {
+                break;
+            }
+            if (!read_value("Введите количество собранных прыжков: ", collected))
+            {
+                break;
+            }
             if (jumps <= 0 || collected < 0)
             {
                 cout << "Ошибка: количество прыжков должно быть положительным, а собранных — неотрицательным." << endl;
@@ -53,19 +81,25 @@ int cj_entry()
         }
         case 3:
         {
-            int kills, missions, territories;
-            cout << "Введите количество убийств: ";
-            cin >> kills;
-            cout << "Введите количество пройденных миссий: ";
-            cin >> missions;
-            cout << "Введите количество захваченных территорий: ";
-            cin >> territories;
-            if (kills < 0 || missions < 0 || territories < 0)
+            int activities, missions, territories;
+            if (!read_value("Введите количество выполненных активностей: ", activities))
+            {
+                break;
+            }
+            if (!read_value("Введите количество пройденных миссий: ", missions))
+            {
+                break;
+            }
+            if (!read_value("Введите количество захваченных территорий: ", territories))
+            {
+                break;
+            }
+            if (activities < 0 || missions < 0 || territories < 0)
             {
                 cout << "Ошибка: значения не могут быть отрицательными." << endl;
                 break;
             }
-            int respect = kills * 2 + missions * 10 + territories * 5;
+            int respect = activities * 2 + missions * 10 + territories * 5;
             cout << "Уважение (Respect) Карла Джонсона: " << respect << " очков" << endl;
             break;
         }
