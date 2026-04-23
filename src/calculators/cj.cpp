@@ -24,8 +24,8 @@ int cj_entry()
     cout << "Ah shit, here we go again." << endl;
     cout << endl;
 
-    constexpr string_view title = "Сан-Андреас";
-    constexpr array entries{
+    constexpr std::string_view title = "Сан-Андреас";
+    constexpr std::array entries{
         "Узнать количество денег на счету Карла",
         "Подсчитать прыжки по городу",
         "Рассчитать уважение (Respect)"
