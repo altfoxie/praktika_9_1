@@ -9,6 +9,7 @@ template <typename T>
 bool read_value(std::string_view prompt, T &value) {
   std::cout << prompt;
   if (std::cin >> value) {
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return true;
   }
 
@@ -25,7 +26,7 @@ int cj_entry()
     cout << endl;
 
     constexpr std::string_view title = "Сан-Андреас";
-    constexpr std::array entries{
+    constexpr std::array<const char*, 3> entries{
         "Узнать количество денег на счету Карла",
         "Подсчитать прыжки по городу",
         "Рассчитать уважение (Respect)"
