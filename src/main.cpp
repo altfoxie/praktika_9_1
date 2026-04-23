@@ -3,6 +3,7 @@
 #include <Windows.h>
 #endif
 
+#include "calculators/cj.h"
 #include "calculators/combinatorics.h"
 #include "calculators/common_fractions.h"
 #include "calculators/functions.h"
@@ -24,7 +25,8 @@ int main(int argc, char **argv) {
                            "Формул комбинаторики",
                            "Многочленов",
                            "Теории вероятностей и математическая статистика",
-                           "Работа с функциями"};
+                           "Работа с функциями",
+                           "Карл Джонсон (Сан-Андреас)"};
 
   while (true) {
     int choice = menu_ask(title, entries, sizeof(entries) / sizeof(entries[0]));
@@ -48,6 +50,9 @@ int main(int argc, char **argv) {
       break;
     case 6: // работа с функциями
       functions_entry();
+      break;
+    case 7: // карл джонсон
+      cj_entry();
       break;
     }
 

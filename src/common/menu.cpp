@@ -3,7 +3,7 @@
 // Возвращает номер выбранного пункта начиная с 1.
 // При выходе возвращает 0.
 // Вывод содержит пустую строку в конце.
-int menu_ask(const char* title, const char** entries, int entries_count)
+int menu_ask(const char* title, const char* const* entries, int entries_count)
 {
 	int choice;
 	while (true)

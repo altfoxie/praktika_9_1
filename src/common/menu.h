@@ -3,4 +3,4 @@
 
 using namespace std;
 
-int menu_ask(const char* title, const char** entries, int entries_count);
+int menu_ask(const char* title, const char* const* entries, int entries_count);
