@@ -1,5 +1,6 @@
 ﻿#include "matrix.h"
 #include "../common/menu.h"
+#include <cmath>
 
 double **create_matrix(double **matrix, int rows, int columns)
 {

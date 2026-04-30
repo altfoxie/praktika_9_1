@@ -8,6 +8,7 @@
 #include "calculators/common_fractions.h"
 #include "calculators/functions.h"
 #include "calculators/matrix.h"
+#include "calculators/perspective.h"
 #include "calculators/polynomial.h"
 #include "calculators/probability_and_stats.h"
 #include "common/menu.h"
@@ -26,6 +27,7 @@ int main(int argc, char **argv) {
                            "Многочленов",
                            "Теории вероятностей и математическая статистика",
                            "Работа с функциями",
+                           "Перспективная проекция",
                            "Карл Джонсон (Сан-Андреас)"};
 
   while (true) {
@@ -51,7 +53,10 @@ int main(int argc, char **argv) {
     case 6: // работа с функциями
       functions_entry();
       break;
-    case 7: // карл джонсон
+    case 7: // перспективная проекция
+      perspective_entry();
+      break;
+    case 8: // карл джонсон
       cj_entry();
       break;
     }
